@@ -10,7 +10,7 @@
       </div>
 
       <div class="col-sm-3 text-right">
-        <%= post.created_at.to_s(:short) %>
+        <%= time_ago_in_words(post.created_at) %>
       </div>
     </div>
 
