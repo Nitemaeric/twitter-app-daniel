@@ -1,0 +1,25 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-9">
+        <%= post.content %>
+
+        <small class="text-muted">
+          by <%= post.user.first_name %>
+        </small>
+      </div>
+
+      <div class="col-sm-3 text-right">
+        <%= post.created_at.to_s(:short) %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <% post.replies.each do |reply| %>
+          <%= render 'posts/item', post: reply %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

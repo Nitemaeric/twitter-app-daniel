@@ -4,21 +4,18 @@
   </div>
 
   <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <%= form_for @new_post do |f| %>
+          <%= f.text_field :content %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+
     <% if @posts.any? %>
       <% @posts.each do |post| %>
-        <div class="card">
-          <div class="card-body">
-            <%= post.content %>
-
-            <% post.replies.each do |reply| %>
-              <div class="card">
-                <div class="card-body">
-                  <%= reply.content %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
+        <%= render 'posts/item', post: post %>
       <% end %>
     <% elsif %>
       <div class="card">
