@@ -14,12 +14,14 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-        <% post.replies.each do |reply| %>
-          <%= render 'posts/item', post: reply %>
-        <% end %>
+    <% if post.replies.any? %>
+      <div class="row">
+        <div class="col">
+          <% post.replies.each do |reply| %>
+            <%= render 'posts/item', post: reply %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
